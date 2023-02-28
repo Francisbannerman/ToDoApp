@@ -102,7 +102,7 @@
             // 
             this.asterix2.AutoSize = true;
             this.asterix2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.asterix2.Location = new System.Drawing.Point(213, 48);
+            this.asterix2.Location = new System.Drawing.Point(213, 51);
             this.asterix2.Name = "asterix2";
             this.asterix2.Size = new System.Drawing.Size(11, 13);
             this.asterix2.TabIndex = 7;
