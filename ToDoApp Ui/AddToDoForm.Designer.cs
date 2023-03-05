@@ -139,5 +139,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerAddToForm;
         private System.Windows.Forms.Label asterix1;
         private System.Windows.Forms.Label asterix2;
+        private System.Windows.Forms.Button addToMainToDo;
     }
 }
