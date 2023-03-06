@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddToDoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddToDoForm.Designer.cs">
-      <DependentUpon>AddToDoForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddToDoForm.resx">
-      <DependentUpon>AddToDoForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainDashboard.resx">
       <DependentUpon>MainDashboard.cs</DependentUpon>
     </EmbeddedResource>
