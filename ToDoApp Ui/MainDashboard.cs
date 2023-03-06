@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,14 +33,6 @@ namespace ToDoApp_Ui
 
         private void editToDoButton_Click(object sender, EventArgs e)
         {
-            //string toedit = toDoAppCheckListBox.Items.ToString();
-            //nameTodoTextBox.Text = toedit;
-            //toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
-
-            //e.NewValue = e.CurrentValue;
-            //string newText = toDoAppCheckListBox.Items[e.Index].ToString();
-            //nameTodoTextBox.Text = newText;
-
             string toedit = toDoAppCheckListBox.Items[toDoAppCheckListBox.SelectedIndex].ToString();
             toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
             nameTodoTextBox.Text = toedit;
@@ -48,6 +41,22 @@ namespace ToDoApp_Ui
         private void deleteToDoButton_Click(object sender, EventArgs e)
         {
             toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
+        }
+
+        private void completeToDoButton_Click(object sender, EventArgs e)
+        {
+            toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
+        }
+
+        private void openToDoButton_Click(object sender, EventArgs e)
+        {
+            List<string> description = new List<string>();
+            description.Add(descriptionTextBox.Text);
+
+            int toDoIndex = toDoAppCheckListBox.SelectedIndex;
+            string final = description[toDoIndex];
+
+            MessageBox.Show(final);
         }
     }
 }
