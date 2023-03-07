@@ -13,8 +13,6 @@ namespace ToDoApp_Ui
 {
     public partial class toDoAppDashboard : Form
     {
-        List<string> Todos = new List<string>();
-
         public toDoAppDashboard()
         {
             InitializeComponent();
@@ -22,6 +20,12 @@ namespace ToDoApp_Ui
 
         private void addToDoButton_Click_1(object sender, EventArgs e)
         {
+            List<string> todos = new List<string>();
+            List<string> descriptions = new List<string>();
+
+            todos.Add(nameTodoTextBox.Text);
+            descriptions.Add(descriptionTextBox.Text);
+
             toDoAppCheckListBox.Items.Add(nameTodoTextBox.Text);
             nameTodoTextBox.Clear();
             descriptionTextBox.Clear();
@@ -40,11 +44,17 @@ namespace ToDoApp_Ui
 
         private void deleteToDoButton_Click(object sender, EventArgs e)
         {
+            List<string> deletedToDos = new List<string>();
+            deletedToDos.Add(toDoAppCheckListBox.Items.ToString());
+
             toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
         }
 
         private void completeToDoButton_Click(object sender, EventArgs e)
         {
+            List<string> completedToDos = new List<string>();
+            completedToDos.Add(toDoAppCheckListBox.Items.ToString());
+
             toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
         }
 
