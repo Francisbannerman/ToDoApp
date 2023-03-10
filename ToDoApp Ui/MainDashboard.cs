@@ -8,11 +8,13 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace ToDoApp_Ui
 {
     public partial class toDoAppDashboard : Form
     {
+        private int currentRow = 1;
         public toDoAppDashboard()
         {
             InitializeComponent();
@@ -20,11 +22,20 @@ namespace ToDoApp_Ui
 
         private void addToDoButton_Click_1(object sender, EventArgs e)
         {
-            List<string> todos = new List<string>();
-            List<string> descriptions = new List<string>();
+            string nameToDo = nameTodoTextBox.Text;
+            string descriptionToDo = descriptionTextBox.Text;
 
-            todos.Add(nameTodoTextBox.Text);
-            descriptions.Add(descriptionTextBox.Text);
+            using (var workbook = new XLWorkbook(@"C:\ToDOApp\mydata.xlsx"))
+            {
+                var worksheet = workbook.Worksheet(1);
+
+                int lastUsedRow = worksheet.LastRowUsed().RowNumber();
+
+                worksheet.Cell(lastUsedRow + 1, 1).Value = nameToDo;
+                worksheet.Cell(lastUsedRow + 1, 2).Value = descriptionToDo;
+
+                workbook.Save();
+            }
 
             toDoAppCheckListBox.Items.Add(nameTodoTextBox.Text);
             nameTodoTextBox.Clear();
@@ -44,29 +55,30 @@ namespace ToDoApp_Ui
 
         private void deleteToDoButton_Click(object sender, EventArgs e)
         {
-            List<string> deletedToDos = new List<string>();
-            deletedToDos.Add(toDoAppCheckListBox.Items.ToString());
-
             toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
         }
 
         private void completeToDoButton_Click(object sender, EventArgs e)
         {
-            List<string> completedToDos = new List<string>();
-            completedToDos.Add(toDoAppCheckListBox.Items.ToString());
-
             toDoAppCheckListBox.Items.Remove(toDoAppCheckListBox.SelectedItem);
         }
 
         private void openToDoButton_Click(object sender, EventArgs e)
         {
-            List<string> description = new List<string>();
-            description.Add(descriptionTextBox.Text);
+            MessageBox.Show(descriptionTextBox.Text);
+        }
 
-            int toDoIndex = toDoAppCheckListBox.SelectedIndex;
-            string final = description[toDoIndex];
-
-            MessageBox.Show(final);
+        public string toDoName()
+        {
+            return nameTodoTextBox.Text;
+        }
+        public string Description()
+        {
+            return descriptionTextBox.Text;
+        }
+        public string Deadline()
+        {
+            return setDeadline.ToString();
         }
     }
 }

@@ -14,12 +14,12 @@ namespace ToDoApp_Ui
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new toDoAppDashboard());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new toDoAppDashboard());
 
-            Connection connection = new Connection();
-            connection.ExcelConnection();
+            //Connection connection = new Connection();
+            //connection.ExcelConnection();
 
         }
     }
